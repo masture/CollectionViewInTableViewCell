@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Collection View In Table Row-->
         <scene sceneID="BWw-eb-Hg0">
             <objects>
                 <viewController id="Zn3-d9-KI6" customClass="ViewController" customModule="CollectionViewInTableViewCell" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,6 +48,65 @@
                                             <outlet property="label" destination="Kte-SG-86z" id="eqT-bj-OIN"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CollectionTableViewCell" rowHeight="100" id="apL-FS-DSj" customClass="CollectionTableViewCell" customModule="CollectionViewInTableViewCell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="128" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="apL-FS-DSj" id="ZD8-vm-m0y">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6y1-iO-WLA">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="100"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="kDl-YH-xNl"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSw-hS-1Cm">
+                                                        <size key="itemSize" width="184" height="95"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LabelCollectionViewCell" id="Ecw-pz-U7P" customClass="LabelCollectionViewCell" customModule="CollectionViewInTableViewCell" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="2.5" width="184" height="95"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="184" height="95"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXM-rE-dVD">
+                                                                        <rect key="frame" x="16" y="28" width="152" height="59"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="SXM-rE-dVD" secondAttribute="bottom" constant="8" id="WBY-5U-PaJ"/>
+                                                                <constraint firstItem="SXM-rE-dVD" firstAttribute="leading" secondItem="Ecw-pz-U7P" secondAttribute="leadingMargin" id="drq-qE-fQ0"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="SXM-rE-dVD" secondAttribute="trailing" id="p96-km-YRp"/>
+                                                                <constraint firstItem="SXM-rE-dVD" firstAttribute="top" secondItem="Ecw-pz-U7P" secondAttribute="topMargin" constant="8" id="phI-db-RXf"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="label" destination="SXM-rE-dVD" id="OUL-ny-IpM"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6y1-iO-WLA" firstAttribute="leading" secondItem="ZD8-vm-m0y" secondAttribute="leading" constant="15" id="NQT-Co-wrC"/>
+                                                <constraint firstItem="6y1-iO-WLA" firstAttribute="top" secondItem="ZD8-vm-m0y" secondAttribute="top" id="RNG-9s-rah"/>
+                                                <constraint firstAttribute="trailing" secondItem="6y1-iO-WLA" secondAttribute="trailing" constant="15" id="cAk-e8-Aca"/>
+                                                <constraint firstAttribute="bottom" secondItem="6y1-iO-WLA" secondAttribute="bottom" constant="-0.5" id="moN-ua-iln"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="6y1-iO-WLA" id="MFz-xn-dKK"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Zn3-d9-KI6" id="Vpn-EN-QqN"/>
@@ -63,7 +122,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Gw-Po-lQa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yW8-bC-7tv"/>
+                    <navigationItem key="navigationItem" title="Collection View In Table Row" id="yW8-bC-7tv"/>
                     <connections>
                         <outlet property="tableView" destination="cXT-D7-vJa" id="Iy4-9T-vCJ"/>
                     </connections>

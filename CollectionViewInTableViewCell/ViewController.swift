@@ -42,16 +42,28 @@ extension ViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell {
-            cell.label.text = tableData[indexPath.section][indexPath.row]
+        // 1st Solution
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell {
+//            cell.label.text = tableData[indexPath.section][indexPath.row]
+//            return cell
+//        }
+        // 2nd Solution
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionTableViewCell", for: indexPath) as? CollectionTableViewCell {
+            
+            cell.collectionView.tag = indexPath.section
+            cell.collectionView.dataSource = self
             return cell
+            
         }
         cell.textLabel?.text = tableData[indexPath.section][indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData[section].count
+        // 1st Soluion
+//        return tableData[section].count
+        // 2nd Solution
+        return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -61,6 +73,28 @@ extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         let footerString = "Total \(section == 0 ? "Teams" : "Players") are \(tableData[section].count)"
         return footerString
+    }
+    
+}
+
+
+
+extension ViewController : UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (tableData[collectionView.tag].count)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LabelCollectionViewCell", for: indexPath) as? LabelCollectionViewCell {
+            
+            cell.label.text = tableData[collectionView.tag][indexPath.row]
+            return cell
+        }
+        
+        return UICollectionViewCell()
+        
     }
     
     
