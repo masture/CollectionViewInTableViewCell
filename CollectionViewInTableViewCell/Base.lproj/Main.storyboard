@@ -83,6 +83,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </view>
+                                                            <color key="backgroundColor" red="0.95294117649999999" green="0.61176470589999998" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottomMargin" secondItem="SXM-rE-dVD" secondAttribute="bottom" constant="8" id="WBY-5U-PaJ"/>
                                                                 <constraint firstItem="SXM-rE-dVD" firstAttribute="leading" secondItem="Ecw-pz-U7P" secondAttribute="leadingMargin" id="drq-qE-fQ0"/>
